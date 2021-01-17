@@ -1,4 +1,5 @@
 ﻿# Информационные ресурсы:
+ * [система оценивания](https://github.com/hillel-front-end/specification)
  * [Внешние скрипты, порядок исполнения](http://learn.javascript.ru/external-script)
  * [Переменные](http://learn.javascript.ru/variables)
  * [Инструменты взаимодействие с пользователем](http://learn.javascript.ru/uibasic)
