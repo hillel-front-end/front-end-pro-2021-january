@@ -12,8 +12,9 @@
 
 
 function getCentralElements(arr1, arr2, arr3){
+    //-------------------------------------------------------
 
-    //step - 1
+    // evolution step - 1 (dity)
     // var count = arr1.length % 2 === 0? 2 : 1;
     // var position = Math.ceil((arr1.length / 2)) - 1;
     // var spliced1 = arr1.splice(position, count);
@@ -25,15 +26,18 @@ function getCentralElements(arr1, arr2, arr3){
     // var position = Math.ceil((arr2.length / 2)) - 1;
     // var spliced2 = arr2.splice(position, count);
 
-    //step - 2
-    // var spliced1 = getCutElem(arr1)
+    //-------------------------------------------------------
+
+    // evolution step - 2
+    // var spliced1 = getCutElem(arr1) // вызов ф-ии getCutElem в теле ф-ии getCentralElements
     // var spliced2 = getCutElem(arr2)
     // var spliced3 = getCutElem(arr3);
 
     // console.log(spliced1, spliced2, spliced3, 'spliced1, spliced2, spliced3');
 
+    //-------------------------------------------------------
 
-    //step - 3
+    // evolution step - 3
     var mass = [];
 
     // console.log(arguments, 'arguments');
@@ -60,5 +64,3 @@ function getCutElem(mass) {
 
     return spliced;
 }
-
-console.log(res, 'res');
