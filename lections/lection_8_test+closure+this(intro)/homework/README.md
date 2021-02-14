@@ -1,5 +1,11 @@
 ﻿# Изучить материал
 
+* https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/this
+* https://myrusakov.ru/javascript-closures.html
+* https://learn.javascript.ru/closures
+
+#Практика
+
 1)Задан обьект с любым количеством свойств. Одно из свойств является функция `renderObject()`, которая описана в window.
 При вызове метода `obj.renderObject()` -> выводит в document всё содержимое объекта, кроме самого метода `renderObject`
 
