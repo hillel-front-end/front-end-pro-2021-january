@@ -186,7 +186,7 @@ console.log(run, 'run');
 
 
 // setTimeout(run, 3000);
-setTimeout(person.run.bind(person), 3000);
+// setTimeout(person.run.bind(person), 3000);
 
 
 var operation = {
@@ -211,4 +211,117 @@ toDo(operation.mul.bind(operation));
 // };
 
 
+var z = 13;
+
+function foo(value) {
+    // LE = {value: 12, a: undef}
+    var a = 12;
+    // LE = {value: 12, a: 12, scope: window}
+
+    // foo.[[Scope]] -> window
+
+    // this = obj || window
+
+    console.log('this -->', this);
+}
+
+
+// obj.foo(12);
+// foo();
+
+
+var obj = {hello: 'world'};
+
+// foo.call(obj);
+
+var foo2 = foo.bind(obj);
+
+// foo.call(obj);
+// foo.apply(obj);
+
+
+var person = {
+    name: "Valera"
+}
+
+var foo3 = foo.bind(person);
+
+foo2();
+foo3();
+
+console.log(foo2, 'foo ----------------- function');
+
+
+// foo();
+// foo();
+
+
+// setTimeout(foo, 4000);
+
+// function setTimeout(callback, ms) { // callback = function()
+//     callback(); // call ms
+// };
+
+
 // -------- partilce bind ----------
+
+
+function ajax(url, payload) {
+    console.log('sending ... ');
+}
+
+
+// ----- bad -----
+// ajax('/auth', {
+//     login: 'Valera',
+//     password: 'qwerty123'
+// });
+
+
+// ajax('/auth', {
+//     login: 'Pety',
+//     password: 'zxcvb5555'
+// });
+
+// ajax('/auth', {
+//     login: 'Alex',
+//     password: 'hhhhhffff33333'
+// });
+
+
+// ----- good -----
+
+/// config -> ajax('/auth')
+
+
+// function ajax(url) {
+//     return function(payload) {
+//         console.log('sending ...', url, ' with payload = ', payload);
+//     }
+// }
+
+// var ajaxAuth = ajax('/auth');
+
+function ajax(url, payload) {
+    debugger;
+    console.log('sending ...', url, ' with payload = ', payload);
+}
+
+
+var ajaxAuth = ajax.bind(null, '/auth')
+
+ajaxAuth({
+    login: 'Valera',
+    password: 'qwerty123'
+});
+
+
+ajaxAuth({
+    login: 'Pety',
+    password: 'zxcvb5555'
+});
+
+ajaxAuth({
+    login: 'Alex',
+    password: 'hhhhhffff33333'
+});
