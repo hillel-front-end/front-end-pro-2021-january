@@ -20,12 +20,9 @@ const obj3 = Object.create(obj2);// {__proto__: obj2}
 
 console.log(obj, 'obj');
 
-console.log(obj2, 'obj2');
+obj2.run();
 
-console.log(obj3, 'obj3');
-
-console.log(obj3.a1, 'a1');
-console.log(obj3.foo, 'foo');
+obj3.run();
 
 obj3.name = 'object - 3';
 obj3.run(); // this ????
@@ -105,6 +102,9 @@ function HTMLElement(tagName) {
     // }
 }
 
+// HTMLElement.prototype = {__proto__: Object.prototype}; // new Object()
+// HTMLElement.prototype.constructor = HTMLElement;
+
     
 HTMLElement.prototype.render = function() {
     console.log('rendering ', this.tagName);
@@ -113,6 +113,7 @@ HTMLElement.prototype.render = function() {
 const anchor = new HTMLElement('a');
 const img = new HTMLElement('img');
 const span = new HTMLElement('span');
+
 
 // HTMLElement.prototype.version = '1.0.0';
 
@@ -126,3 +127,58 @@ const span = new HTMLElement('span');
 // console.log(span.__proto__ === HTMLElement.prototype);// 
 
 anchor.render();
+
+const arr = new Array();
+const arr2 = [];
+
+// very bad practice
+// arr2.myPush = function(v) {
+//     console.log(v, 'v !!!!!!!!!!!!!');
+// }
+
+// arr.__proto__ = arr2;
+
+// arr2.myPush(1);// ['1!']
+
+// arr2.myPush(2);// ['1!', '2!']
+
+
+// arr.myPush(3); // ['1!']
+
+console.log(Array.prototype, 'Array.prototype');
+console.log(arr.__proto__, 'Array.__proto__');
+
+
+console.log(Array.prototype === arr.__proto__);
+
+function foo() {
+    console.log(arguments, 'arguments');
+}
+
+
+Array.prototype.myPush = function(arg) {
+    console.log('My Push', arg);
+};
+
+
+const arr3 = new Array();
+const arr4 = [];
+
+
+// console.log(arr3, 'arr3');
+// console.log(arr4, 'arr4');
+
+arr.myPush('arg1');
+arr2.myPush('arg2');
+arr3.myPush('arg3');
+arr4.myPush('arg4');
+
+
+
+// foo();
+
+const span2 = new HTMLElement('span');
+
+
+console.log(span2, 'span2');
+console.log(arr4, 'arr4');
