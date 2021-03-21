@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 50px;
+    color: white;
+}
+
+header {
+    display: flex;
+    background-color: black;
+    height: 200px;
+}
+
+.navigation {
+    height: 100px;
+    background-color: red;
+}
+
+.aside {
+    background-color: blue;
+    width: 50%;
+    height: 300px;
+}
+
+.box {
+    width: 100px;
+    height: 200px;
+    background-color: blue;
+}

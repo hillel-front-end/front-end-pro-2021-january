@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Распространение событий DOM Level 2</title>
+
+    <script>
+
+        // В модели DOM Level 2 события распространяются по следующему принципу:
+        // На этапе ПЕРЕХВАТА событие распространяется от Document вниз до целевого элемента управления.
+        // Второй этап - СОБЫТИЕ В ЦЕЛЕВОМ УЗЛЕ.
+        // На третьем этапе событие ВСПЛЫВАЕТ от целевого элемента обратно вверх до корневого элемента.
+
+        // последний параметр в методе addEventListener - 
+        // true - обработать событие на этапе ПЕРЕХВАТА
+        // false - обработать событие на этапе ВСПЛЫВАНИЕ
+        // event.stopPropagation();
+        var isTunnel = true;
+
+        window.onload = function () {
+
+            var e1 = document.getElementById("first");
+            var e2 = document.getElementById("second");
+            var e3 = document.getElementById("third");
+
+            e1.addEventListener("click",
+                function (event) {
+                    event.stopPropagation();
+                    // setTimeout(() => {
+                    //     this.style.background = 'red';
+                    // }, 3000);
+                    console.log('click-1')
+
+                },
+            isTunnel);
+
+            e2.addEventListener("click",
+                function (event) {
+                    // event.stopPropagation();
+                    console.log('click-2');
+
+                    // setTimeout(() => {
+                    //     this.style.background = 'yellow';
+                    // }, 2000);
+
+                },
+            isTunnel);
+
+
+            e3.addEventListener("click", function (event) {
+                    // event.stopPropagation();
+                    console.log('click-3');
+
+                    // setTimeout(() => {
+                    //     this.style.background = 'green';
+                    // }, 1000);
+
+                }, isTunnel);
+        }
+    </script>
+
+    <style>
+        div {
+            border: 3px solid gray;
+            padding: 50px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    Первый
+    <div id="first">
+        Второй
+        <div id="second">
+            Третий
+            <div id="third"></div>
+        </div>
+    </div>
+
+    <table border="1px" cellspacing="5px" cellpadding="5px">
+        <tr class="person-edit">
+            <td>nanme</td>
+            <td>lastName</td>
+            <td>sureName</td>
+            <td><button class="show-modal">show modal</button></td>
+        </tr>
+        <tr class="person-edit">
+            <td>nanme</td>
+            <td>lastName</td>
+            <td>sureName</td>
+            <td><button class="show-modal">show modal</button></td>
+        </tr>
+    </table>
+
+    <script >
+
+        const bottonShowModal = document.querySelector('.show-modal')
+        const personEdit = document.querySelector('.person-edit');
+
+
+        bottonShowModal.addEventListener('click', (event) => {
+            event.stopPropagation();
+            console.log('show modal preview')
+        });
+
+        personEdit.addEventListener('click', () => {
+            console.log('redirect to page edit candidate');
+        });
+
+    </script>
+</body>
+</html>

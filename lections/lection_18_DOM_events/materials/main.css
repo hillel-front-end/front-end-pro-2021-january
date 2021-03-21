@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+
+    background-color: red;
+    /* border-radius: 5px; */
+
+    cursor: pointer;
+}
+
+
+.box-2 {
+    background-color: blue;
+}
+
+.box-2:after {
+    content: attr('data-name');
+}
