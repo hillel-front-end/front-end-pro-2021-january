@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row {
+            display: flex;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        .menu.column {
+            width: 30%;
+        }
+
+        .menu__item {
+            cursor: pointer;
+        }
+
+        .row .menu__item {
+            margin-right: 10px;
+            border-right: 1px solid black;
+            color: red;
+            padding-right: 10px;
+        }
+
+        .column .menu__item {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            width: 100%;
+            color: purple;
+            border-bottom: 1px solid purple;
+            text-align: center;
+        }
+
+        #auth {
+            display: flex;
+            flex-direction: column;
+        }
+
+        [name="login"], [name="password"] {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="menu-container"></div> -->
+
+    <form id="auth">
+        <label for="login">login</label>
+        <input type="text" id="login" name="login">
+
+        <label for="password">password</label>
+        <input type="password" id="password" name="password">
+
+        <label for="firstName">name</label>
+        <input type="firstName" id="firstName" name="firstName">
+
+        <label for="lastName">last name</label>
+        <input type="lastName" id="lastName" name="lastName">
+
+        <button>send</button>
+    </form>
+</body>
+<script src="main.js"></script>
+</html>
