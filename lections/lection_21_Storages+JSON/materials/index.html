@@ -19,13 +19,39 @@
             padding: 0px;
         }
 
+        #auth-form {
+            display: flex;
+            flex-direction: column;
+            
+            width: 50%;
+            margin: 0 auto;
+        }
+
     </style>
 
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
+    <script src="practice.js"></script>
 </head>
 <body>
 
-    <input type="text" name="password" />
+    <!-- <input type="text" name="password" /> -->
 
+
+    <form id="auth-form">
+        <label for="login"> login </label>
+        <input type="text" name="login" id="login">
+
+        <label for="password"> password </label>
+        <input type="text" name="password" id="password">
+
+        <label for="age"> Age </label>
+        <input type="number" name="age" id="age">
+
+
+        <div class="button-group">
+            <button>send</button>
+            <button>save to store</button>
+        </div>
+    </form>
 </body>
 </html>
