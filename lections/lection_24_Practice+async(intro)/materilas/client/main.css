@@ -1,0 +1,36 @@
+.form {
+    position: fixed;
+    width: 50%;
+    border: 1px solid blue;
+    padding: 10px;
+
+    transition: all 1s ease-in;
+}
+
+.form:nth-child(odd) {
+    left: 100%;
+}
+
+
+.form:nth-child(even) {
+    left: -50%;
+}
+
+
+.form:nth-child(odd):before {
+    content: 'ODD';
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+.form:nth-child(even):before {
+    content: 'even';
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.form.center {
+    left: 50%;
+    transform: translateX(-50%);
+}
