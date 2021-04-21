@@ -43,14 +43,10 @@ app.get('/login', function(req, res) {
 });
 
 
-
-
 app.get('/auth', function(req, res) {
-	setTimeout(() => {
 		res
 		.status(200)
 		.send({success: false});
-	}, 15000);
 });
 
 
