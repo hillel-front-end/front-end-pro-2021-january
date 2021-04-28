@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <style>
+      .error {
+        color: red;
+      }
+
+      .success {
+        color: greenyellow;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{ hello }}
+      <br />
+      a + 1 = {{ a + 1 }}
+
+      <br />
+
+      {{ bool ? 'sell' : 'buy' }} 
+      
+      {{ toDo() }}
+
+
+      {{ info }}
+      
+      --- info ---
+
+      <div v-html="info" class="container"></div>
+
+      <div v-html="info" class="container"></div>
+
+      <h2> V-BIND </h2>
+
+      <a v-bind:href="link + '/some-path'">{{ hello }}</a>
+
+      <button :disabled="isDisabled">Some text</button>
+
+      <h2> two way data binding </h2>
+
+      <input 
+        type="text" 
+        v-model="text"
+        placeholder="Login"
+      />
+
+      <button :disabled="text.length === 0">Send text</button>
+      <br>
+      {{ text }}
+      {{ text.length === 0 }}
+
+      <h2>Loops</h2>
+
+      <div class="products">
+        <section v-for="(product, $index) in products">
+          <span @click="onClick(product, $index)">{{ $index + 1 }}, {{ product }}</span>
+        </section>
+      </div>
+
+
+      <h2>Events</h2>
+      <!-- v-on:event="hanlder" -->
+      <!-- @event="hanlder" -->
+
+      <button @click="onClick">click</button>
+
+    </div>
+
+
+    <script src="./main.js"></script>
+  </body>
+</html>
