@@ -43,6 +43,8 @@ a = 22;
 
 // SPA
 
+
+
 console.log(Vue, "vue");
 
 const model = {
@@ -58,7 +60,20 @@ const model = {
     'sprite',
     'pepsi',
     'soda'
-  ]
+  ], 
+  isVisible: false,
+  customStyles: {
+    'fontSize': '15px',
+    'width': '100px',
+    'height': '100px',
+    'backgroundColor': 'red'
+  },
+  customStyles2: {
+    'fontSize': '200px',
+    'width': '500px',
+    'height': '500px',
+    'backgroundColor': 'red'
+  }
 };
 
 const methods = {
@@ -72,13 +87,14 @@ const methods = {
     console.log(product, 'product');
     console.log(index, 'index');
     console.log(this.products, 'this');
-    
+
+    this.$set(this.customStyles, 'width', '200px'); // where, key, value
 
     // console.log(this.products[index], 'this.products[index]');
     // this.products.splice(index, 1);
-
+      this.products.push('lolo');
     // this.products[index] = this.text;
-    this.$set(this.products, index, this.text); // where, key, value
+    // this.$set(this.products, index, this.text); // where, key, value
   }
 };
 
@@ -89,3 +105,4 @@ const config = {
 };
 
 const vue = new Vue(config);
+  
